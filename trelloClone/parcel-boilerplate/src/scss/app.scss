@@ -1,0 +1,19 @@
+@import url(./trello-wrap.scss);
+@import url(./trello-progress.scss);
+@import url(./todo.scss);
+@import url(./in-progress.scss);
+@import url(./done.scss);
+@import url(./card.scss);
+
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+.trello-container {
+    background-color: rgb(216, 216, 216);
+    padding: 20px;
+}

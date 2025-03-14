@@ -1,0 +1,40 @@
+.card {
+    background-color: rgba(206, 193, 141, 0.342);
+    border: 1px solid rgb(206, 193, 141);
+    padding: 15px;
+    margin: 5px;
+    border-radius: 10px;
+}
+
+.card-top {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+button {
+    padding: 5px;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgba(0, 0, 0, 0.458);
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+select {
+    flex-grow: 1;
+    margin: 0 5px;
+}
+
+.card-title {
+    margin-bottom: 10px;
+}
+
+.card-description {
+    margin-bottom: 20px;
+}
+
+.card-bottom {
+    display: flex;
+    justify-content: space-between;
+}

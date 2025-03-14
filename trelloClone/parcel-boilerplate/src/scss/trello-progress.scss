@@ -1,0 +1,11 @@
+.todo-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.trello-progress {
+    width: 30%;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgba(0, 0, 0, 0.059);
+    border-radius: 10px;
+}

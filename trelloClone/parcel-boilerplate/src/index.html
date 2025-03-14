@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trello-clone</title>
+    <link rel="stylesheet" href="./scss/app.scss">
+    <script src="./js/app.js" type="module"></script>
+</head>
+<body>
+    <div class="trello-container">
+        <div class="trello-wrap">
+            <div class="logo-img-wrap">
+                <img src="./img/trello-logo.png" alt="logo">
+            </div>
+            <div class="time">Time</div>
+        </div>
+        <div class="todo-container">
+            <div class="trello-progress todo">
+                <div class="todo-title">TODO:</div>
+                <button class="add-todo">Add todo</button>
+                <!-- <div class="card">
+                    <div class="card-top">
+                        <button class="edit">EDIT</button>
+                        <select name="3" id="status">
+                            <option value="admin">TODO</option>
+                            <option value="in-progress">IN PROGRESS</option>
+                            <option value="done">DONE</option>
+                        </select>
+                        <button class="delete">DELETE</button>
+                    </div>
+                    <div class="card-title">title</div>
+                    <div class="card-description">description</div>
+                    <div class="card-bottom">
+                        <div class="user">USER</div>
+                        <div class="timer">TIME</div>
+                    </div>
+                </div> -->
+            </div>
+            <div class="trello-progress in-progress">
+                <div class="in-progress-title">IN PROGRESS:</div>
+            </div>
+            <div class="trello-progress done">
+                <div class="done-title">DONE:</div>
+                <button class="delete-all">Delete all</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
