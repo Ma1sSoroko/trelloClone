@@ -18,12 +18,12 @@
         <div class="todo-container">
             <div class="trello-progress todo">
                 <div class="todo-title">TODO:</div>
-                <button class="add-todo">Add todo</button>
+                <button class="add-todo popup-link">Add todo</button>
                 <!-- <div class="card">
                     <div class="card-top">
                         <button class="edit">EDIT</button>
                         <select name="3" id="status">
-                            <option value="admin">TODO</option>
+                            <option value="todo">TODO</option>
                             <option value="in-progress">IN PROGRESS</option>
                             <option value="done">DONE</option>
                         </select>
@@ -44,6 +44,24 @@
                 <div class="done-title">DONE:</div>
                 <button class="delete-all">Delete all</button>
             </div>
+        </div>
+    </div>
+
+    <div id="popup" class="popup">
+        <div class="popup-body">
+            <form class="popup-content">
+                <input type="text">
+                <textarea name="description" id="add-description"></textarea>
+                <div class="popup-content-wrap">
+                    <select name="3" id="user">
+                        <option value="admin">Admin</option>
+                        <option value="moderator">Moderator</option>
+                        <option value="guest">Guest</option>
+                    </select>
+                    <button class="cancel-add close-popup" type="button">Cancel</button>
+                    <button class="confirm-add" type="submit">Confirm</button>
+                </div>
+            </form>
         </div>
     </div>
 </body>
