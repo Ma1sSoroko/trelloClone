@@ -122,7 +122,9 @@ closePopupEditElement.addEventListener('click', function (event) {
 // Удаляем все todo
 deleteAllElement.addEventListener('click', handleClickButtonDeleteAll)
 function handleClickButtonDeleteAll() {
+    if (    confirm('Вы уверены, что хотите удалить ВСЕ?')) {
     setState({ todos: [] })
+    } 
 }
 
 // Удаляем одну todo
