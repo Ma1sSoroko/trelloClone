@@ -5,17 +5,17 @@ let state = {
 }
 const addTodoElement = document.querySelector('.add-todo')
 const addPopupElement = document.querySelector('#popup')
+const editPopupElement = document.querySelector('#popup-edit')
+const closePopupElement = document.querySelector('.close-popup')
+const closePopupEditElement = document.querySelector('.close-popup-edit')
 const formElement = document.querySelector('.popup-content')
 const addTitleElement = document.querySelector('.add-title')
 const deleteAllElement = document.querySelector('.delete-all')
 const addDescriptionElement = document.querySelector('#add-description')
 const userElement = document.querySelector('#user')
 const todoElement = document.querySelector('.todo-todo')
+const editElement = document.querySelector('.edit')
 render(state.todos)
-// Открытие модального окна, для добавления toodo
-addTodoElement.addEventListener('click', function (event) {
-    addPopupElement.style.cssText = 'opacity: 1; visibility: visible;'
-})
 
 // Класс конструктор
 class Todo {
@@ -31,7 +31,7 @@ class Todo {
 
 // Придаем дате понятный вид
 function prepareDate(date) {
-    const dateInstance = new Date (date)
+    const dateInstance = new Date(date)
     const options = {
         year: 'numeric',
         month: 'numeric',
@@ -54,7 +54,7 @@ function buildTemplateTodo({ title, description, id, createdAt, user }) {
     const date = prepareDate(createdAt)
     return `<div class="card" data-id="${id}">
                 <div class="card-top">
-                    <button class="edit">EDIT</button>
+                    <button class="edit" data-role="edit">EDIT</button>
                     <select name="3" id="status">
                         <option value="todo">TODO</option>
                         <option value="in-progress">IN PROGRESS</option>
@@ -78,7 +78,17 @@ function render(todos = []) {
     todoElement.innerHTML = html
 }
 
-// Отправляем форму
+// Открытие модального окна, для добавления toodo
+addTodoElement.addEventListener('click', function (event) {
+    addPopupElement.style.cssText = 'opacity: 1; visibility: visible;'
+})
+
+// Закрытие модального окна через Cancel
+closePopupElement.addEventListener('click', function (event) {
+    addPopupElement.style.cssText = 'opacity: 0; visibility: hidden;'
+})
+
+// Отправляем форму для добавления toodo
 formElement.addEventListener('submit', handleSubmitForm)
 function handleSubmitForm(event) {
     event.preventDefault()
@@ -95,6 +105,19 @@ function handleSubmitForm(event) {
     // Закрытие модального окна, для добавления toodo
     addPopupElement.style.cssText = 'opacity: 0; visibility: hidden;'
 }
+
+// // Открытие модального окна, для редактирования toodo
+todoElement.addEventListener('click', function ({ target }) {
+    const { role } = target.dataset
+    if (role === 'edit') {
+        editPopupElement.style.cssText = 'opacity: 1; visibility: visible;'
+    }
+})
+
+// // Закрытие модального окна редактирования через Cancel
+closePopupEditElement.addEventListener('click', function (event) {
+        editPopupElement.style.cssText = 'opacity: 0; visibility: hidden;'
+})
 
 // Удаляем все todo
 deleteAllElement.addEventListener('click', handleClickButtonDeleteAll)

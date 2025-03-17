@@ -6,6 +6,20 @@
     <title>Trello-clone</title>
     <link rel="stylesheet" href="./scss/app.scss">
     <script src="./js/app.js" type="module"></script>
+    <script>
+        function digitalClock() {
+         var date = new Date();
+         var hours = date.getHours();
+         var minutes = date.getMinutes();
+         var seconds = date.getSeconds();
+            //* добавление ведущих нулей */
+           if (hours < 10) hours = "0" + hours;
+           if (minutes < 10) minutes = "0" + minutes;
+           if (seconds < 10) seconds = "0" + seconds;
+             document.getElementById("id-clock").innerHTML = hours + ":" + minutes + ":" + seconds;
+             setTimeout("digitalClock()", 1000);
+        }
+       </script>
 </head>
 <body>
     <div class="trello-container">
@@ -13,7 +27,8 @@
             <div class="logo-img-wrap">
                 <img src="./img/trello-logo.png" alt="logo">
             </div>
-            <div class="time">Time</div>
+            <div id="id-clock"></div>
+            <script>digitalClock();</script>
         </div>
         <div class="todo-container">
             <div class="trello-progress todo">
@@ -62,6 +77,19 @@
                     </select>
                     <button class="cancel-add close-popup" type="button">Cancel</button>
                     <button class="confirm-add" type="submit">Confirm</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="popup-edit" class="popup popup-edit">
+        <div class="popup-body popup-body-edit">
+            <form class="popup-content popup-content-edit">
+                <input class="add-title add-title-edit" type="text">
+                <textarea name="description" id="add-description-edit"></textarea>
+                <div class="popup-content-wrap popup-content-wrap-edit">
+                    <button class="cancel-add close-popup cancel-add-edit close-popup-edit" type="button">Cancel</button>
+                    <button class="confirm-add confirm-add-edit" type="submit">Confirm</button>
                 </div>
             </form>
         </div>
