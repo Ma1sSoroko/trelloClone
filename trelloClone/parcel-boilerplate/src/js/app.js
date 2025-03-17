@@ -14,6 +14,8 @@ const deleteAllElement = document.querySelector('.delete-all')
 const addDescriptionElement = document.querySelector('#add-description')
 const userElement = document.querySelector('#user')
 const todoElement = document.querySelector('.todo-todo')
+const inProgressElement = document.querySelector('.todo-in-progress')
+const doneElement = document.querySelector('.todo-done')
 const editElement = document.querySelector('.edit')
 render(state.todos)
 
@@ -50,18 +52,18 @@ function setState(newState = {}) {
 }
 
 // Создаем шаблон карточки todo
-function buildTemplateTodo({ title, description, id, createdAt, user }) {
+function buildTemplateTodo({ title, description, id, createdAt, user}) {
     const date = prepareDate(createdAt)
     return `<div class="card" data-id="${id}">
-                <div class="card-top">
+                <form class="card-top">
                     <button class="edit" data-role="edit">EDIT</button>
-                    <select name="3" id="status">
+                    <select name="3" id="status" data-status="status">
                         <option value="todo">TODO</option>
                         <option value="in-progress">IN PROGRESS</option>
                         <option value="done">DONE</option>
                     </select>
                     <button class="delete" data-role="remove">DELETE</button>
-                </div>
+                </form>
                 <div class="card-title">${title}</div>
                 <div class="card-description">${description}</div>
                 <div class="card-bottom">
@@ -73,9 +75,9 @@ function buildTemplateTodo({ title, description, id, createdAt, user }) {
 
 // Добавляем рендер
 function render(todos = []) {
-    todoElement.innerHTML = ''
-    const html = todos.reduce((acc, todo) => acc + buildTemplateTodo(todo), '')
-    todoElement.innerHTML = html
+        todoElement.innerHTML = ''
+        const html = todos.reduce((acc, todo) => acc + buildTemplateTodo(todo), '')
+        todoElement.innerHTML = html
 }
 
 // Открытие модального окна, для добавления toodo
@@ -92,7 +94,7 @@ closePopupElement.addEventListener('click', function (event) {
 formElement.addEventListener('submit', handleSubmitForm)
 function handleSubmitForm(event) {
     event.preventDefault()
-
+    
     const title = addTitleElement.value
     const description = addDescriptionElement.value
     const user = userElement.value
@@ -108,6 +110,7 @@ function handleSubmitForm(event) {
 
 // // Открытие модального окна, для редактирования toodo
 todoElement.addEventListener('click', function ({ target }) {
+    event.preventDefault()
     const { role } = target.dataset
     if (role === 'edit') {
         editPopupElement.style.cssText = 'opacity: 1; visibility: visible;'
@@ -116,15 +119,15 @@ todoElement.addEventListener('click', function ({ target }) {
 
 // // Закрытие модального окна редактирования через Cancel
 closePopupEditElement.addEventListener('click', function (event) {
-        editPopupElement.style.cssText = 'opacity: 0; visibility: hidden;'
+    editPopupElement.style.cssText = 'opacity: 0; visibility: hidden;'
 })
 
 // Удаляем все todo
 deleteAllElement.addEventListener('click', handleClickButtonDeleteAll)
 function handleClickButtonDeleteAll() {
-    if (    confirm('Вы уверены, что хотите удалить ВСЕ?')) {
-    setState({ todos: [] })
-    } 
+    if (confirm('Вы уверены, что хотите удалить ВСЕ?')) {
+        setState({ todos: [] })
+    }
 }
 
 // Удаляем одну todo
