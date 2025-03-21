@@ -1,3 +1,5 @@
+import {digitalClock} from './clock.js'
+
 // Переменные
 const storageKey = 'todos'
 let state = {
@@ -52,7 +54,7 @@ function setState(newState = {}) {
 }
 
 // Создаем шаблон карточки todo
-function buildTemplateTodo({ title, description, id, createdAt, user}) {
+function buildTemplateTodo({ title, description, id, createdAt, user }) {
     const date = prepareDate(createdAt)
     return `<div class="card" data-id="${id}">
                 <form class="card-top">
@@ -75,9 +77,9 @@ function buildTemplateTodo({ title, description, id, createdAt, user}) {
 
 // Добавляем рендер
 function render(todos = []) {
-        todoElement.innerHTML = ''
-        const html = todos.reduce((acc, todo) => acc + buildTemplateTodo(todo), '')
-        todoElement.innerHTML = html
+    todoElement.innerHTML = ''
+    const html = todos.reduce((acc, todo) => acc + buildTemplateTodo(todo), '')
+    todoElement.innerHTML = html
 }
 
 // Открытие модального окна, для добавления toodo
@@ -94,7 +96,7 @@ closePopupElement.addEventListener('click', function (event) {
 formElement.addEventListener('submit', handleSubmitForm)
 function handleSubmitForm(event) {
     event.preventDefault()
-    
+
     const title = addTitleElement.value
     const description = addDescriptionElement.value
     const user = userElement.value

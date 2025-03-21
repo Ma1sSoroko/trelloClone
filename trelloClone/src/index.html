@@ -6,20 +6,6 @@
     <title>Trello-clone</title>
     <link rel="stylesheet" href="./scss/app.scss">
     <script src="./js/app.js" type="module"></script>
-    <script>
-        function digitalClock() {
-         var date = new Date();
-         var hours = date.getHours();
-         var minutes = date.getMinutes();
-         var seconds = date.getSeconds();
-            //* добавление ведущих нулей */
-           if (hours < 10) hours = "0" + hours;
-           if (minutes < 10) minutes = "0" + minutes;
-           if (seconds < 10) seconds = "0" + seconds;
-             document.getElementById("id-clock").innerHTML = hours + ":" + minutes + ":" + seconds;
-             setTimeout("digitalClock()", 1000);
-        }
-       </script>
 </head>
 <body>
     <div class="trello-container">
@@ -28,7 +14,6 @@
                 <img src="./img/trello-logo.png" alt="logo">
             </div>
             <div id="id-clock"></div>
-            <script>digitalClock();</script>
         </div>
         <div class="todo-container">
             <div class="trello-progress todo">
