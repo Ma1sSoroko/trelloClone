@@ -17,7 +17,10 @@
         </div>
         <div class="todo-container">
             <div class="trello-progress todo">
-                <div class="todo-title">TODO:</div>
+                <div class="todo-title-wrap">
+                    <div class="todo-title">TODO:</div>
+                    <div id="todo-title-counter"></div>
+                </div>
                 <button class="add-todo">Add todo</button>
                 <div class="todo-todo">
                 <!-- <div class="card">
@@ -40,11 +43,17 @@
                 </div>
             </div>
             <div class="trello-progress in-progress">
-                <div class="in-progress-title">IN PROGRESS:</div>
+                <div class="in-progress-title-wrap">
+                    <div class="in-progress-title">IN PROGRESS:</div>
+                    <div id="in-progress-counter"></div>
+                </div>
                 <div class="todo-in-progress"></div>
             </div>
             <div class="trello-progress done">
-                <div class="done-title">DONE:</div>
+                <div class="done-title-wrap">
+                    <div class="done-title">DONE:</div>
+                    <div id="done-counter"></div>
+                </div>
                 <button class="delete-all">Delete all</button>
                 <div class="todo-done"></div>
             </div>

@@ -1,9 +1,11 @@
-.todo-title {
+.todo-title-wrap {
     background-color: rgba(160, 221, 174, 0.342);
     border: 1px solid rgb(114, 160, 125);
     padding: 30px;
     border-radius: 10px;
     margin-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
 }
 
 .add-todo {

@@ -1,9 +1,11 @@
-.done-title {
+.done-title-wrap {
     background-color: rgba(126, 196, 239, 0.342);
     border: 1px solid rgb(105, 162, 198);
     padding: 30px;
     border-radius: 10px;
     margin-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
 }
 
 .delete-all {
