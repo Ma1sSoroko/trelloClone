@@ -100,7 +100,7 @@ function handleSubmitForm(event) {
     todos.push(todo)
     setState({ todos })
     formElement.reset()
-
+    
     // Закрытие модального окна, для добавления toodo
     addPopupElement.style.cssText = 'opacity: 0; visibility: hidden;'
 }
