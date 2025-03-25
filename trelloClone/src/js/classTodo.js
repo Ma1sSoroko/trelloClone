@@ -11,6 +11,4 @@ class Todo {
     }
 }
 
-export {
-    Todo
-}
+export { Todo }
